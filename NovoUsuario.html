@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Usuário</title>
+</head>
+<body>
+
+    <h1>Novo Usuário</h1>
+
+    <form action="index.html" method="get">
+
+        <p>
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" name="nome">
+        </p>
+
+        <fieldset>
+            <legend>Sexo:</legend>
+
+            <input type="radio" id="feminino" name="sexo" value="Feminino">
+            <label for="feminino">Feminino</label>
+
+            <input type="radio" id="masculino" name="sexo" value="Masculino">
+            <label for="masculino">Masculino</label>
+
+            <input type="radio" id="outro" name="sexo" value="Outro">
+            <label for="outro">Outro</label>
+        </fieldset>
+
+        <p>
+            <label for="observacoes">Observações:</label><br>
+            <textarea id="observacoes" name="observacoes" rows="5" cols="40"></textarea>
+        </p>
+
+        <p>
+            <label for="email">E-mail:</label><br>
+            <input type="email" id="email" name="email">
+        </p>
+
+        <p>
+            <label for="senha">Senha:</label><br>
+            <input type="password" id="senha" name="senha">
+        </p>
+
+        <p>
+            <label for="confirmar">Confirmar Senha:</label><br>
+            <input type="password" id="confirmar" name="confirmar">
+        </p>
+
+        <p>
+            <input type="submit" value="Cadastrar">
+            <input type="reset" value="Limpar">
+        </p>
+
+    </form>
+
+    <p>
+        <a href="index.html">Voltar para o Login</a>
+    </p>
+
+</body>
+</html>
