@@ -2,25 +2,28 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Tela de Login</title>
-</head>
-  <body>
 
-    <h1>Loja Online</h1>
+    <title>Tela de Login</title>
+
+</head>
+<body>
+
+    <center>
+
+        <h1>Loja Online jogos Xbox</h1>
+
+    </center>
 
     <img src="../Projeto HTML/" alt="">
-    
 
-     <table border="4" width="300" height="240" align="center">
+    <table border="4" width="300" height="240" align="center">
         <tr>
             <td>
-
-             <form action="principal.html" method="get">
-
+                <form action="TelaPrincipal.html" method="get" onsubmit="verificarLogin(event)">
                     <table align="center">
-
                         <tr>
-                            <td align="right">
+
+                            <td>
                                 <label for="usuario">Usuário</label>
                             </td>
 
@@ -29,8 +32,9 @@
                             </td>
                         </tr>
 
+
                         <tr>
-                            <td align="right">
+                            <td>
                                 <label for="senha">Senha</label>
                             </td>
 
@@ -39,23 +43,95 @@
                             </td>
                         </tr>
 
+
                         <tr>
                             <td colspan="2" align="center">
+
                                 <br>
 
-                    <p>
-                         <input type="submit" value="Entrar">
-                    </p>
-                        </form>
+                                <p>
+                                    <input type="submit" value="Entrar">
+                                </p>
+                            </td>
+                        </tr>
 
-                            <p>
-                              <a href="NovoUsuario.html">Novo Usuário</a>
-                            </p>
-
-                             <p>
-                                 <a href="RecuperarSenha.html">Esqueceu a senha?</a>
-                             </p>
                     </table>
-     </table>
-  </body>
+
+                    <p align="center">
+                        <a href="NovoUsuario.html"> Novo Usuário </a>
+                    </p>
+
+                    <p align="center">
+                        <a href="RecuperarSenha.html"> Esqueceu a senha? </a>
+                    </p>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+
+    <script>
+        //Essa parte eu apelei pro youtube e o reddit, fiquei quebrando cabeça e queria um negocio mais bonitinho e funcional.
+
+        function verificarLogin(event) {
+
+            var usuario = document.getElementById("usuario").value;
+            var senha = document.getElementById("senha").value;
+            // Verifica se o usuário não foi informado
+
+            if (usuario == "") {
+
+                event.preventDefault();
+                alert("Informe o nome de usuário antes de continuar.");
+                return;
+
+            }
+
+            // Verifica se a senha não foi informada
+
+            if (senha == "") {
+                event.preventDefault();
+                alert("Informe a senha antes de continuar.");
+
+                return;
+
+            }
+
+            // Verifica se a senha possui no mínimo 6 caracteres
+
+            if (senha.length < 6) {
+                event.preventDefault();
+
+                alert("A senha deve ter no mínimo 6 caracteres.");
+
+                return;
+            }
+
+            // Verifica se a senha possui pelo menos uma letra
+
+            if (!/[a-zA-Z]/.test(senha)) {
+
+                event.preventDefault();
+
+                alert("A senha deve possuir pelo menos uma letra.");
+                return;
+            }
+
+
+            // Verifica se a senha possui pelo menos um número válido
+
+            if (!/[0-9]/.test(senha)) {
+
+                event.preventDefault();
+
+                alert("A senha deve possuir pelo menos um número.");
+
+                return;
+
+            }
+
+        }
+    </script>
+
+</body>
 </html>

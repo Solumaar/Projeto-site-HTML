@@ -3,44 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <title>Recuperar Senha</title>
+
+    <style>
+
+        /* Animação do campo de e-mail, a pesar que essa porcaria nao ser do jeito que eu quis */
+        #email {
+            transition: 0.3s;
+        }
+        #email:hover {
+            transform: scale(1.08);
+            background-color: #eeeeee;
+        }
+        /* Mensagem "Senha enviada" */
+        #mensagem {
+            display: none;
+            color: rgb(8, 4, 238);
+            font-weight: bold;
+        }
+
+    </style>
 </head>
+
 <body>
+    <center>
+        <h1>Recuperar Senha</h1>
+    </center>
 
-    <h1>Recuperar Senha</h1>
-<br>
- <table border="4" width= "300" height= "180" align="center"> 
-    <tr>  
-        <td>
-              <form action="index.html" method="get">
+    <table border="5" width="300" height="180" align="center">
+        <tr>
+            <td>
+                <form onsubmit="enviarSenha(event)">
+                    <table align="center">
+                        <tr>
+                            <td>
+                                <label for="email"> E-mail: </label>
+                            </td>
 
-            <table align="center">
+                            <td>
+                                <input type="email" id="email" name="email">
+                            </td>
+                        </tr>
 
-                <tr>
-                    <td align="right">
+                        <tr>
+                            <td colspan="2">
 
-                    <label for="email">E-mail:</label><br>    
+                                    <center>
+                                        <br>
+                                            <input type="submit" id="enviar" value="Enviar">
 
-                    </td>
-                </tr>
-                <tr>
-            <td> 
-                <p>
-                    <input type="submit" value="Enviar">
-                </p>
+                                    </center>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <center>
+                                    <p id="mensagem"> Senha enviada </p>
+                                </center>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <center>
+                                    <br>
+                                    <a
+                                        href="index.html"  onclick="verificarEmail(event)"> Voltar para o Login </a>
+                                </center>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
             </td>
-                </tr>
+        </tr>
+    </table>
 
-                <tr>
-                    <td align="rigth">
 
-                        <a href="index.html">Voltar para o Login</a> 
-                    </td>
-                </tr>
+    <script>
+        /* 
+           1 - Verifica quando  o e-mail é colocando, quando clicar no botao "Enviar", mostra uma alerta "Senha enviada". E infelizzmente tive que copiar do youtube*/
+        function enviarSenha(event) {
+            event.preventDefault();
+            var email = document.getElementById("email").value;
+            if (email == "") {
 
-            </table>
-              </form>
-       
-    </form>
-</table>
+                alert("Informe seu e-mail para recuperar a senha.");
+
+                return;
+            }
+            document.getElementById("mensagem").style.display = "block";
+        }
+
+
+        /* Verificaçao do e-mail, caso o email nao seja digitado e o usuário tentar ir para outra página, vai dar error.*/  
+
+        function verificarEmail(event) {
+
+            var email = document.getElementById("email").value;
+            if (email == "") {
+                event.preventDefault();
+
+                alert("Informe seu e-mail antes de continuar.");
+            }
+
+        }
+
+    </script>
 </body>
 </html>
