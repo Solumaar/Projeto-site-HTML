@@ -1,0 +1,337 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=VT323&display=swap');
+
+:root {
+    --bege: #f3e8d2;
+    --bege-claro: #fff7e8;
+    --rose: #e8b8a5;
+    --vermelho: #a8323a;
+    --vinho: #76252d;
+    --escuro: #30251f;
+}
+
+/* FUNDO RETRÔ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    color: var(--escuro);
+
+    background-color: var(--bege) !important;
+    background-image:
+        radial-gradient(
+            ellipse at 10% 15%,
+            rgba(232, 184, 165, 0.8),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 90% 85%,
+            rgba(166, 48, 57, 0.13),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #fff7e8 0%,
+            #f3e8d2 55%,
+            #ead4bd 100%
+        ) !important;
+
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* MOLDURA EXTERNA DA TELA */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 12px;
+
+    border: 3px solid var(--escuro);
+    border-radius: 12px;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* TÍTULO */
+
+body > center {
+    width: 100%;
+    margin-bottom: 28px;
+
+    animation: entradaTitulo 0.8s ease both;
+}
+
+h1 {
+    display: inline-block;
+    margin: 0;
+    padding: 18px 30px;
+
+    font-family: 'VT323', monospace;
+    font-size: clamp(38px, 6vw, 62px);
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: var(--bege-claro);
+    background: var(--vermelho);
+
+    border: 3px solid var(--escuro);
+    border-radius: 10px;
+
+    box-shadow: 7px 7px 0 var(--escuro);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+h1:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 10px 10px 0 var(--escuro);
+}
+
+/* JANELA DO LOGIN */
+
+body > table {
+    width: min(100%, 430px) !important;
+    height: auto !important;
+    margin: 0 auto;
+
+    border: 3px solid var(--escuro) !important;
+    border-radius: 12px;
+
+    border-collapse: separate !important;
+    border-spacing: 0;
+
+    background: var(--bege-claro) !important;
+
+    box-shadow:
+        8px 8px 0 var(--vinho),
+        0 18px 40px rgba(48, 37, 31, 0.12);
+
+    animation: entradaJanela 0.8s 0.15s ease both;
+}
+
+/* REMOVE AS BORDAS ANTIGAS DAS TABELAS */
+
+body > table td,
+body > table table,
+body > table tr {
+    border: none !important;
+}
+
+body > table > tbody > tr > td {
+    padding: 30px 24px 22px;
+}
+
+/* ORGANIZAÇÃO DOS CAMPOS */
+
+form {
+    width: 100%;
+}
+
+form table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+}
+
+form table td {
+    padding: 4px;
+    vertical-align: middle;
+}
+
+/* RÓTULOS */
+
+label {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--vinho);
+}
+
+/* CAMPOS DE TEXTO */
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+
+    font-family: 'Courier Prime', monospace;
+    font-size: 15px;
+    color: var(--escuro);
+
+    background: #fffdf7;
+    border: 2px solid var(--escuro);
+    border-radius: 6px;
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    background: white;
+    border-color: var(--vermelho);
+    box-shadow: 4px 4px 0 var(--rose);
+}
+
+/* BOTÃO ENTRAR */
+
+input[type="submit"] {
+    min-width: 150px;
+    padding: 12px 28px;
+
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: var(--bege-claro);
+    background: var(--vermelho);
+
+    border: 2px solid var(--escuro);
+    border-radius: 6px;
+    box-shadow: 4px 4px 0 var(--escuro);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background: var(--vinho);
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--escuro);
+}
+
+input[type="submit"]:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+/* LINKS */
+
+form > p {
+    margin: 16px 0 0;
+}
+
+a {
+    display: inline-block;
+    padding: 5px;
+
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    font-weight: 700;
+
+    color: var(--vinho);
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+a:hover {
+    color: var(--vermelho);
+    text-decoration: underline;
+    transform: translateY(-2px);
+}
+
+/* ANIMAÇÕES */
+
+@keyframes entradaTitulo {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes entradaJanela {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* CELULAR */
+
+@media (max-width: 480px) {
+    body {
+        padding: 30px 20px;
+    }
+
+    body::before {
+        inset: 6px;
+    }
+
+    h1 {
+        padding: 14px 16px;
+        font-size: 38px;
+        letter-spacing: 1px;
+    }
+
+    body > table > tbody > tr > td {
+        padding: 22px 12px;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        padding: 10px 7px;
+        font-size: 13px;
+    }
+
+    a {
+        font-size: 12px;
+    }
+}
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

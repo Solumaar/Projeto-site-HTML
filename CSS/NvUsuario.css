@@ -1,0 +1,409 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=VT323&display=swap');
+
+:root {
+    --bege: #f3e8d2;
+    --bege-claro: #fff7e8;
+    --rose: #e8b8a5;
+    --vermelho: #a8323a;
+    --vinho: #76252d;
+    --escuro: #30251f;
+    --verde: #81977a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+/* FUNDO */
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 35px 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    color: var(--escuro);
+
+    background-color: var(--bege);
+    background-image:
+        radial-gradient(
+            ellipse at 12% 15%,
+            rgba(232, 184, 165, 0.75),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 90% 85%,
+            rgba(168, 50, 58, 0.12),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #fff7e8,
+            #f3e8d2 60%,
+            #ead4bd
+        );
+
+    background-attachment: fixed;
+}
+
+/* MOLDURA DA TELA */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 12px;
+
+    border: 3px solid var(--escuro);
+    border-radius: 12px;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* TÍTULO */
+
+body > center {
+    width: 100%;
+    margin-bottom: 28px;
+
+    animation: tituloEntrar 0.7s ease both;
+}
+
+h1 {
+    display: inline-block;
+    margin: 0;
+    padding: 16px 30px;
+
+    font-family: 'VT323', monospace;
+    font-size: clamp(38px, 6vw, 58px);
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+
+    color: var(--bege-claro);
+    background: var(--vermelho);
+
+    border: 3px solid var(--escuro);
+    border-radius: 10px;
+
+    box-shadow: 7px 7px 0 var(--escuro);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+h1:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 10px 10px 0 var(--escuro);
+}
+
+/* FORMULÁRIO */
+
+form {
+    width: min(100%, 540px);
+
+    padding: 0;
+    margin: 0;
+
+    animation: formularioEntrar 0.85s 0.12s ease both;
+}
+
+/* TABELA EXTERNA */
+
+form > table {
+    width: 100% !important;
+    height: auto !important;
+
+    border: 3px solid var(--escuro) !important;
+    border-radius: 12px;
+    border-collapse: separate !important;
+    border-spacing: 0;
+
+    background: var(--bege-claro);
+
+    box-shadow:
+        8px 8px 0 var(--vinho),
+        0 18px 40px rgba(48, 37, 31, 0.12);
+}
+
+/* REMOVE AS BORDAS ANTIGAS */
+
+form > table td,
+form > table tr {
+    border: none !important;
+}
+
+form > table > tbody > tr > td {
+    padding: 22px;
+}
+
+/* TABELA INTERNA */
+
+form table table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+}
+
+form table table td {
+    padding: 4px;
+}
+
+/* RÓTULOS */
+
+label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--vinho);
+}
+
+/* CAMPOS DE TEXTO E E-MAIL */
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    min-width: 0;
+    padding: 11px 12px;
+
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    color: var(--escuro);
+
+    background: #fffdf7;
+
+    border: 2px solid var(--escuro);
+    border-radius: 6px;
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+/* DESTAQUE AO DIGITAR */
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    background: white;
+    border-color: var(--vermelho);
+    box-shadow: 4px 4px 0 var(--rose);
+}
+
+/* ESPAÇO ENTRE RÓTULO E CAMPO */
+
+form table table tr td > label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* OPÇÕES DE SEXO */
+
+fieldset {
+    margin: 8px 0;
+    padding: 15px;
+
+    border: 2px solid var(--escuro);
+    border-radius: 7px;
+    background: rgba(232, 184, 165, 0.18);
+}
+
+legend {
+    padding: 5px 10px;
+
+    font-family: 'VT323', monospace;
+    font-size: 23px;
+    color: var(--vinho);
+}
+
+/* RADIO BUTTONS */
+
+input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    margin: 0 4px 0 8px;
+
+    accent-color: var(--vermelho);
+    cursor: pointer;
+}
+
+fieldset label {
+    cursor: pointer;
+}
+
+/* BOTÕES */
+
+input[type="submit"],
+input[type="reset"] {
+    min-width: 125px;
+    margin: 8px 5px;
+    padding: 11px 18px;
+
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: var(--bege-claro);
+    background: var(--vermelho);
+
+    border: 2px solid var(--escuro);
+    border-radius: 6px;
+    box-shadow: 4px 4px 0 var(--escuro);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background: var(--vinho);
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--escuro);
+}
+
+input[type="reset"] {
+    color: var(--escuro);
+    background: var(--rose);
+}
+
+input[type="reset"]:hover {
+    background: #d9a18e;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--escuro);
+}
+
+input[type="submit"]:active,
+input[type="reset"]:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+/* MENSAGEM DO FORMULÁRIO */
+
+#mensagem {
+    margin: 14px 0 0;
+    padding: 12px;
+
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+
+    color: var(--vinho);
+    background: rgba(232, 184, 165, 0.28);
+
+    border: 1px dashed var(--vermelho);
+    border-radius: 6px;
+}
+
+/* ANIMAÇÕES */
+
+@keyframes tituloEntrar {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes formularioEntrar {
+    from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 480px) {
+    body {
+        padding: 28px 18px;
+    }
+
+    body::before {
+        inset: 6px;
+    }
+
+    h1 {
+        padding: 13px 15px;
+        font-size: 38px;
+        letter-spacing: 1px;
+    }
+
+    form > table > tbody > tr > td {
+        padding: 13px;
+    }
+
+    form table table {
+        border-spacing: 0 9px;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        min-width: 105px;
+        margin: 6px 2px;
+        padding: 10px;
+        font-size: 21px;
+    }
+
+    fieldset {
+        padding: 10px 5px;
+    }
+
+    fieldset label {
+        font-size: 11px;
+    }
+
+    input[type="radio"] {
+        margin-left: 3px;
+    }
+}
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
